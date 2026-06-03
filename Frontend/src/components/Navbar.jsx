@@ -11,7 +11,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className={`w-full fixed top-0 left-0 z-50 p-4  backdrop-blur-sm  flex items-center justify-between transition-all  ${ darkMode? ' bg-[rgba(218,249,249,0.3)] ':'bg-[hsl(0,0%,10%)]  '}`}>
+    <nav className={`w-full fixed top-0 left-0 z-50 p-4  backdrop-blur-sm border flex items-center justify-between transition-all ${ darkMode? ' bg-[rgba(218,249,249,0.3)] ':'bg-[hsl(0,0%,10%)]  '}`}>
       
       {/* Left Section */}
       <div className="flex items-center ">
