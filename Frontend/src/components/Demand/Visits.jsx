@@ -22,7 +22,7 @@ const Visits = () => {
           }) => (
             <article
               key={id}
-              className="w-[280px] border border-pink-100 shadow-sm rounded-xl p-4 bg-white hover:shadow-md transition-all"
+              className="w-[300px] max-[700px]:w-full border border-pink-100 shadow-sm rounded-xl p-4 bg-white hover:shadow-md transition-all"
             >
               {/* Header */}
               <div className="flex items-center justify-between mb-3">
