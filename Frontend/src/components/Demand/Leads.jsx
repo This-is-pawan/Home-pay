@@ -3,8 +3,10 @@ import { CiFilter, CiStar } from "react-icons/ci";
 import { FiDownload } from "react-icons/fi";
 import { MdDeleteForever } from "react-icons/md";
 import { lead_user } from "../data";
+import { GlobalContext } from "../../ContextApi";
 
 const Leads = () => {
+  const {darkMode}=GlobalContext()
   const [selectedIds, setSelectedIds] = useState([]);
 
   const handleSelectAll = () => {
@@ -28,12 +30,12 @@ const Leads = () => {
       {/* Filters */}
       <div className="flex flex-wrap gap-3 items-center justify-between mb-6">
         <div className="flex items-center gap-2">
-          <CiFilter size={22} />
-          <span className="font-medium">Filters</span>
+          <CiFilter size={22} className={`${darkMode?'':'text-slate-400'}`} />
+          <span className={`${darkMode?'':'text-slate-400'}`}>Filters</span>
         </div>
 
-        <div className="flex flex-wrap gap-2 max-[500px]:grid  grid-cols-2 text-sm">
-          <select className="px-3 py-2 rounded-lg text-xs border">
+        <div className={` flex flex-wrap gap-2 max-[500px]:grid  grid-cols-2 text-sm`}>
+          <select className={`px-3 py-2 rounded-lg text-xs border ${darkMode? 'bg-white' : 'bg-[hsla(0,17%,5%,1)] text-slate-400 border-pink-700'} `}>
             <option>All Source</option>
             <option>WhatsApp</option>
             <option>Instagram</option>
@@ -41,21 +43,21 @@ const Leads = () => {
             <option>Website</option>
           </select>
 
-          <select className="px-3 py-2 rounded-lg text-xs border">
+          <select className={`px-3 py-2 rounded-lg text-xs border ${darkMode? 'bg-white' : 'bg-[hsla(0,17%,5%,1)] text-slate-400 border-pink-700'}`}>
             <option>All Stages</option>
             <option>New Lead</option>
             <option>Contacted</option>
             <option>Booked</option>
           </select>
 
-          <select className="px-3 py-2 rounded-lg text-xs border">
+          <select className={`px-3 py-2 rounded-lg text-xs border ${darkMode? 'bg-white' : 'bg-[hsla(0,17%,5%,1)] text-slate-400 border-pink-700'}`}>
             <option>Newest First</option>
             <option>Oldest First</option>
             <option>Score High To Low</option>
             <option>Score Low To High</option>
           </select>
 
-          <button className="flex items-center gap-2 px-4 py-2 rounded-lg border hover:bg-yellow-500 hover:text-white transition">
+          <button className={`flex items-center gap-2 px-4 py-2 rounded-lg border hover:bg-yellow-500 hover:text-white transition ${darkMode? 'bg-white' : 'bg-[hsla(0,17%,5%,1)] text-slate-400 border-pink-700'}`}>
             <FiDownload />
             Export
           </button>
@@ -64,32 +66,33 @@ const Leads = () => {
 
       {/* Bulk Actions */}
       {selectedIds.length > 0 && (
-        <div className="bg-pink-50 p-4 rounded-lg flex flex-wrap gap-3 mb-5">
+        <div className={`${darkMode ?
+        'bg-pink-50':'bg-[hsla(0,17%,5%,1)] text-slate-400 border border-pink-700'} p-4 rounded-lg flex flex-wrap gap-3 mb-5`}>
           <p className="text-sm font-medium">
             {selectedIds.length} Selected
           </p>
 
-          <select className="px-3 py-2 rounded-lg text-xs border">
+          <select className={`px-3 py-2 rounded-lg text-xs border ${darkMode? 'bg-white' : 'bg-[hsla(0,17%,5%,1)] text-slate-400 border-pink-700'}`}>
             <option>Assign To</option>
             <option>Sham</option>
             <option>Amit Saxena</option>
             <option>Raman</option>
           </select>
 
-          <select className="px-3 py-2 rounded-lg text-xs border">
+          <select className={`px-3 py-2 rounded-lg text-xs border ${darkMode? 'bg-white' : 'bg-[hsla(0,17%,5%,1)] text-slate-400 border-pink-700'}`}>
             <option>New Lead</option>
             <option>Contacted</option>
             <option>Booked</option>
             <option>Lost</option>
           </select>
 
-          <button className="bg-red-600 text-white px-4 py-2 rounded-lg">
-            <MdDeleteForever />
+          <button className={` px-4 py-2 rounded-lg ${darkMode?'bg-red-600 text-white':'text-yellow-500 bg-red-600 border-pink-700 border'} `}>
+            <MdDeleteForever className="text-lg" />
           </button>
 
           <button
             onClick={() => setSelectedIds([])}
-            className="bg-pink-500 text-white px-4 py-2 rounded-lg"
+            className={`${darkMode?'bg-pink-500 text-white':'bg-[hsla(0,17%,5%,1)] text-slate-400 border-pink-700 border'}  px-4 py-2 rounded-lg`}
           >
             Clear
           </button>
@@ -98,13 +101,13 @@ const Leads = () => {
 
       {/* Desktop Table */}
       <div className="hidden md:block">
-        <div className="grid grid-cols-9 items-center bg-pink-100 border border-pink-300 p-4 rounded-t-xl font-medium">
+        <div className={`grid grid-cols-9 items-center  border  p-4 rounded-t-xl font-medium  ${darkMode?'bg-pink-100 text-pink-300':'bg-[hsla(0,17%,5%,1)] text-slate-400 border-pink-700 border'}`} >
           <div
             onClick={handleSelectAll}
-            className="w-4 h-4 border border-black rounded-full cursor-pointer flex items-center justify-center"
+            className={`w-4 h-4 border border-black rounded-full cursor-pointer flex items-center justify-center ${darkMode?'border-black ':'border-slate-400 '}`}
           >
             {selectedIds.length === lead_user.length && (
-              <div className="w-2 h-2 bg-black rounded-full"></div>
+              <div className={`w-2 h-2 rounded-full ${darkMode?'bg-black ':'border-slate-400  border'} `}></div>
             )}
           </div>
 
@@ -125,14 +128,14 @@ const Leads = () => {
           return (
             <div
               key={lead.id}
-              className="grid grid-cols-9 items-center p-4 border-b bg-white hover:bg-pink-50"
+            className={`grid grid-cols-9 items-center p-4 border-b  ${darkMode?'bg-white hover:bg-pink-50':'bg-[hsla(0,17%,5%,1)] text-slate-400 hover:bg-slate-800 opacity-[0.7] border border-pink-700'}`}
             >
               <div
                 onClick={() => handleSelect(lead.id)}
-                className="w-4 h-4 border border-black rounded-full cursor-pointer flex items-center justify-center"
+                className={`w-4 h-4 border  rounded-full cursor-pointer flex items-center justify-center ${darkMode?'border-black':'bg-[hsla(0,17%,5%,1)] text-slate-400'}`}
               >
                 {selectedIds.includes(lead.id) && (
-                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                  <div className={`w-2 h-2  rounded-full ${darkMode?'bg-black ':'border-slate-400  border'}`}></div>
                 )}
               </div>
 
@@ -142,7 +145,7 @@ const Leads = () => {
               <p>{lead.status}</p>
 
               <p className="flex items-center gap-1">
-                <CiStar className="text-yellow-500" />
+                <CiStar className={`text-yellow-500`}  />
                 {lead.score}
               </p>
 
@@ -150,8 +153,8 @@ const Leads = () => {
               <p>{lead.location}</p>
 
               <div className="flex gap-3">
-                <PhoneIcon className="cursor-pointer text-yellow-500" />
-                <MessageIcon className="cursor-pointer text-yellow-500" />
+                <PhoneIcon className={`cursor-pointer text-yellow-500`} />
+                <MessageIcon className={`cursor-pointer text-yellow-500`} />
               </div>
             </div>
           );
@@ -167,7 +170,7 @@ const Leads = () => {
           return (
             <div
               key={lead.id}
-              className="bg-white border rounded-xl p-4 shadow-sm"
+              className={`bg-white border rounded-xl p-4 shadow-sm`}
             >
               <div className="flex justify-between items-start mb-3">
                 <div>
@@ -179,10 +182,10 @@ const Leads = () => {
 
                 <div
                   onClick={() => handleSelect(lead.id)}
-                  className="w-5 h-5 border border-black rounded-full cursor-pointer flex items-center justify-center"
+                  className={`w-5 h-5 border border-black rounded-full cursor-pointer flex items-center justify-center`}
                 >
                   {selectedIds.includes(lead.id) && (
-                    <div className="w-2 h-2 bg-black rounded-full"></div>
+                    <div className={`w-2 h-2 bg-black rounded-full`}></div>
                   )}
                 </div>
               </div>
@@ -195,14 +198,14 @@ const Leads = () => {
 
                 <p className="flex items-center gap-1">
                   <strong>Score:</strong>
-                  <CiStar className="text-yellow-500" />
+                  <CiStar className={`text-yellow-500`} />
                   {lead.score}
                 </p>
               </div>
 
               <div className="flex gap-4 mt-4">
-                <PhoneIcon className="text-xl text-yellow-500 cursor-pointer" />
-                <MessageIcon className="text-xl text-yellow-500 cursor-pointer" />
+                <PhoneIcon className={`text-xl text-yellow-500 cursor-pointer`} />
+                <MessageIcon className={`text-xl text-yellow-500 cursor-pointer`} />
               </div>
             </div>
           );
