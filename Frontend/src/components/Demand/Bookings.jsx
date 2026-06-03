@@ -1,7 +1,9 @@
 import React from "react";
 import { bookings } from "../data";
+import { GlobalContext } from "../../ContextApi";
 
 const Bookings = () => {
+  const {darkMode}=GlobalContext()
   return (
     <div className="p-3 md:p-5">
       {/* Stats Cards */}
@@ -9,9 +11,10 @@ const Bookings = () => {
         {bookings.map(({ id, booking_type, results, icons: Icon }) => (
           <article
             key={id}
-            className="
-              bg-gradient-to-r from-pink-50 to-rose-50
-              border border-pink-100
+            className={`
+              ${darkMode?'bg-pink-50 border-pink-100 ':'bg-[hsl(0,0%,10%)]  border border-pink-700 text-slate-400'}
+              
+              border 
               rounded-xl
               shadow-sm
               p-4 sm:p-6
@@ -19,7 +22,7 @@ const Bookings = () => {
               hover:border-yellow-500
               transition-all
               cursor-pointer
-            "
+            `}
           >
             {/* Icon */}
             <div className="flex items-center justify-center">
@@ -30,7 +33,7 @@ const Bookings = () => {
 
             {/* Content */}
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-gray-800">
+              <h2 className={`text-xl md:text-2xl font-bold  ${darkMode?'text-gray-800':'text-slate-400'}`}>
                 {results}
               </h2>
 
@@ -43,9 +46,9 @@ const Bookings = () => {
       </div>
 
       {/* Filter Section */}
-      <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-4 mb-4">
+      <div className={`rounded-lg shadow-sm p-4 mb-4 ${darkMode?'bg-white border-gray-200 border':'border border-pink-700'} bg-[hsl(0,0%,10%)] `}>
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <select className="border border-gray-200 rounded-md px-3 py-2 text-sm outline-none w-full sm:w-auto">
+          <select className={` rounded-md px-3 py-2 text-sm outline-none w-full sm:w-auto ${darkMode?'border border-gray-200':'border border-pink-700 bg-[hsl(0,0%,10%)] text-slate-400'}`}>
             <option>All Statuses</option>
             <option>Pending</option>
             <option>Confirmed</option>
@@ -60,10 +63,10 @@ const Bookings = () => {
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-x-auto">
+      <div className={` rounded-lg shadow-sm border overflow-x-auto ${darkMode?'bg-white border-gray-200':'bg-[hsl(0,0%,10%)]border border-pink-700'}`}>
         <table className="w-full min-w-[900px] text-sm">
-          <thead className="bg-pink-50">
-            <tr className="text-left text-gray-700">
+          <thead className={` ${darkMode?'bg-pink-50' :'bg-[hsl(0,0%,10%)]'}`}>
+            <tr className={`text-left  ${darkMode?'text-700':'text-slate-400 bg-slate-700'}`}>
               <th className="p-3">Lead</th>
               <th className="p-3">Property</th>
               <th className="p-3">Room / Bed</th>
