@@ -6,6 +6,7 @@ import {
   Cell,
   Tooltip,
 } from "recharts";
+import { GlobalContext } from "../../ContextApi";
 
 const data = [
   { name: "Phone Call", value: 20 },
@@ -28,9 +29,10 @@ const COLORS = [
 ];
 
 const LeadSources = () => {
+  const {darkMode}=GlobalContext()
   return (
-    <div className="bg-white  rounded-xl shadow-md p-4">
-      <h3 className="font-semibold text-sm mb-4">
+    <div className={`${darkMode?'bg-white ':'bg-[hsla(0,17%,5%,1)]'}  transition-all  rounded-xl shadow-md p-4`}>
+      <h3 className="font-semibold text-sm mb-4 text-slate-400">
         Lead Sources
       </h3>
 

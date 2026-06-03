@@ -3,8 +3,10 @@ import { agent_performance, data_dash, hot_leads, needs } from "../../components
 import { TiArrowUp, TiArrowDown } from "react-icons/ti";
 import PipelineChart from "./Pipelinechart.jsx";
 import LeadSources from "./LeadSources.jsx";
+import { GlobalContext } from "../../ContextApi.jsx";
 
 const Dashboard = () => {
+  const {darkMode,setDarkMode}=GlobalContext()
   return (
     <div className="p-4 space-y-6">
       
@@ -16,12 +18,12 @@ const Dashboard = () => {
           return (
             <article
               key={item.id}
-              className="bg-white/80 border border-pink-200 rounded-xl p-4 shadow-sm hover:shadow-md transition"
+              className={`tansition-all  ${ darkMode? ' bg-[rgba(218,249,249,0.3)] border-pink-100 border':'bg-[hsla(0,17%,5%,1)] border border-pink-800  '}  rounded-xl p-4 shadow-sm hover:shadow-md transition`}
             >
               {/* Top Row */}
               <div className="flex justify-between items-center">
                 <div
-                  className={`p-3 rounded-lg ${item.iconBg} ${item.iconColor}`}
+                  className={` transition-all p-3 rounded-lg ${darkMode? 'bg-pink-200':'bg-[#363333] text-yellow-500'}`}
                 >
                   <Icon size={20} />
                 </div>
@@ -44,7 +46,7 @@ const Dashboard = () => {
 
               {/* Bottom Info */}
               <div className="mt-4">
-                <h2 className="text-2xl font-bold text-gray-800">
+                <h2 className="text-2xl font-bold text-gray-700">
                   {item.value}
                 </h2>
                 <p className="text-sm text-gray-500 mt-1">
@@ -72,18 +74,18 @@ const Dashboard = () => {
       </div>
 {/* needs attention */}
 <div className=" min-[900px]:grid grid-cols-2 gap-2">
-<article className="bg-white shadow-md rounded-lg p-2 mb-6">
+<article className={`tansition-all ${darkMode?'bg-white ':'bg-[hsla(0,17%,5%,1)] text-slate-400'} shadow-md rounded-lg p-2 mb-6`}>
  <article className="flex justify-between items-center">
 
  <h1 className="capitalize font-bold p-2">needs attention</h1>
-<span className="w-4 h-4 text-pink-500 opacity-[0.7] text-xs bg-pink-200 text-center rounded-md  ">3</span>
+<span className={`tansition-all w-4 h-4 text-pink-500 opacity-[0.7] text-xs text-center rounded-md ${darkMode ?'bg-pink-200 ':'bg-yellow-500 text-slate-700 '} `}>3</span>
  </article>
  
   {needs.map(({id,name,client,rent,wait})=>{
-   return<div className=" bg-pink-100  m-2 flex  justify-around items-center p-4 capitalize gap-2 rounded-lg  ">
+   return<div className={`   m-2 flex  justify-around items-center p-4 capitalize gap-2 rounded-lg tansition-all ${darkMode?'bg-pink-100':'bg-[hsla(0,17%,5%,1)] text-slate-400 border border-pink-800'} `} key={id}>
 <article>
 <h1 className="text-xs">{name}</h1>
-<p className="text-xs opacity-[0.6]">{rent}</p>
+<p className="text-xs ">{rent}</p>
   </article>
 <article>
  <h3 className="text-xs">{client}</h3>
@@ -92,19 +94,20 @@ const Dashboard = () => {
    </div> 
   })}
   
-
+{/*  */}
 </article>
 {/* hotleads */}
-<article className="bg-white shadow-md rounded-lg p-2 mb-6">
+<article className={` transition-all  shadow-md rounded-lg p-2 mb-6 ${darkMode?'bg-white ':'bg-[hsla(0,17%,5%,1)] text-slate-400'} `}>
+
  <article className="flex justify-between items-center">
 <h1 className="capitalize font-bold p-2">hot leads</h1>
-<span className="w-20 h-6 p-1 text-pink-500 opacity-[0.7] text-xs bg-pink-200 text-center rounded-md  ">score{'<='}70</span>
+<span className={` tansition-all w-20 h-6 p-1 text-pink-500 opacity-[0.7] text-xs  text-center rounded-md ${darkMode?'bg-pink-200':'bg-yellow-500 text-slate-700'} `}>score{'<='}70</span>
  </article>
 {hot_leads.map(({ id, name, rating, icons: Icon, location }) => {
  return (
   <div
   key={id}
-  className="bg-pink-100 m-2 flex justify-between items-center p-4 capitalize gap-2 rounded-lg "
+  className={`tansition-all  m-2 flex justify-between items-center p-4 capitalize gap-2 rounded-lg ${darkMode ?  'bg-pink-100' : 'bg-[hsla(0,17%,5%,1)] border border-pink-800'}`}
   >
       {/* Left side */}
       <article>
@@ -124,18 +127,18 @@ const Dashboard = () => {
  })}
  </article>
  {/* follow-ups */}
- <article className="bg-white shadow-md rounded-lg p-2 mb-6 ">
+ <article className={` transition-all  shadow-md rounded-lg p-2 mb-6 ${darkMode?'bg-white ':'bg-[hsla(0,17%,5%,1)] text-slate-400'} `}>
   <article className="flex items-center justify-between p-2">
 
 <h1 className="capitalize font-bold p-2">follow-ups</h1>
-<span className="w-20 h-4 text-pink-500 opacity-[0.7] text-xs bg-pink-200 text-center rounded-md  ">pending</span>
+<span className={`w-20 h-4 text-pink-500 opacity-[0.7] text-xs bg-pink-200 text-center rounded-md  ${darkMode?'text-slate-700':'bg-yellow-500 text-slate-700'}`}>pending</span>
   </article>
 <div className="text-center text-pink-500 opacity-[0.7] text-xs p-4 capitalize">
  not pending follow-ups
 </div>
  </article>
  {/* agent performance */}
- <article className="bg-white shadow-md rounded-lg p-2 mb-6  ">
+ <article className={` transition-all  shadow-md rounded-lg p-2 mb-6 ${darkMode?'bg-white ':'bg-[hsla(0,17%,5%,1)] text-slate-400'} `}>
  <article className="flex justify-between items-center">
 <h1 className="capitalize font-bold p-2">Agent Performance</h1>
 
@@ -154,7 +157,7 @@ const Dashboard = () => {
         {name.charAt(0)}
        </h1> 
       </article>
-       <article className=" tracking-wider text-black">
+       <article className={`tansition-all tracking-wider text-black ${darkMode?'text-black':'text-slate-400'}`}>
         <h1 className="text-xs font-medium">{`${name}`}</h1>
         <article className="w-44 flex justify-around">
         <span className="text-xs opacity-60">{`${active}`}</span>

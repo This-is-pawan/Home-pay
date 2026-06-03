@@ -4,36 +4,27 @@ import { FiMoon } from "react-icons/fi";
 import { IoIosSunny } from "react-icons/io";
 
 import { links } from "./data";
+import { GlobalContext } from "../ContextApi";
 
 
 const Dashboard = () => {
-  const [darkMode, setDarkMode] = useState(true);
+const {darkMode, setDarkMode}=GlobalContext()
  const [loading, setLoading] = useState(true);
   return (
     <div
-      className={`mt-[4.8rem] h-[calc(100vh-75px)] flex bg-[rgba(0, 0, 0,0.9] `}
+      className={`  flex bg-[rgba(0, 0, 0,0.9] min-[900px]:mt-[6rem] min-[900px]:h-[calc(100vh-6rem)]  `}
     >
       {/* Sidebar */}
       
-      <aside
-        className={`w-[250px] flex flex-col max-[900px]:hidden z-10 ${
-          darkMode
-            ? "bg-black text-gray-300"
-            : "bg-black text-gray-300"
-        }`}
-      >
-       
+   <aside
+  className={`w-[250px] h-full flex flex-col max-[900px]:hidden z-10 ${
+    darkMode
+      ? "bg-black text-gray-300"
+      : "bg-black text-gray-300"
+  }`}
+>
         {/* Fixed Logo */}
-        <div className="h-16 px-4 flex items-center gap-3 border-b border-gray-800">
-          <div className="h-10 w-10 rounded-full bg-yellow-500 flex items-center justify-center font-bold text-black">
-            H
-          </div>
-
-          <div>
-            <h1 className="font-bold">HomePay</h1>
-            <p className="text-xs text-gray-400">Booking OS</p>
-          </div>
-        </div>
+       
 
         {/* Scrollable Links */}
         <div className=" flex-1 overflow-y-auto p-3 ">
@@ -93,7 +84,7 @@ const Dashboard = () => {
       </aside>
 
       {/* Dashboard Content */}
-      <main className={`flex-1 overflow-y-auto p-5 bg-[rgba(218,249,249,0.42)] `}>
+      <main className={`flex-1 overflow-y-auto p-5 transition-all max-[900px]:mt-[4em]  ${darkMode?"bg-[rgba(218,249,249,0.42)]":"bg-[hsl(0,0%,10%)]"}`}>
 
           <Outlet  />
        

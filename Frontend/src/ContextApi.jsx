@@ -5,10 +5,11 @@ export const GlobalContext=()=>{
 }
 const ContextApi = ({children}) => {
  const [bar,setBar]=useState(true);
+   const [darkMode, setDarkMode] = useState(true);
 const [activeIndex, setActiveIndex] = useState(1);
   return (
     <div>
-      <create_context.Provider value={{bar,setBar}}>
+      <create_context.Provider value={{bar,setBar,darkMode, setDarkMode}}>
        {children}
        </create_context.Provider>   
         </div>

@@ -8,6 +8,7 @@ import {
   Tooltip,
   CartesianGrid,
 } from "recharts";
+import { GlobalContext } from "../../ContextApi";
 
 const pipelineData = [
   { stage: "New", count: 3 },
@@ -21,9 +22,10 @@ const pipelineData = [
 ];
 
 const PipelineChart = () => {
+  const{darkMode}=GlobalContext()
   return (
-    <div className="w-full max-w-[1200px] rounded-2xl bg-white  p-5 shadow-lg">
-      <h2 className="mb-5 text-sm font-semibold text-slate-700 dark:text-slate-200">
+    <div className={`${darkMode?'bg-white ':'bg-[hsla(0,17%,5%,1)]'} tansition-all w-full max-w-[1200px] rounded-2xl  p-5 shadow-lg`}>
+      <h2 className="mb-5 text-sm font-semibold text-slate-400 ">
         Pipeline Distribution
       </h2>
 
@@ -33,7 +35,7 @@ const PipelineChart = () => {
           margin={{
             top: 10,
             right: 10,
-            left: -20,
+            left: -30,
             bottom: 5,
           }}
         >
@@ -44,7 +46,7 @@ const PipelineChart = () => {
 
           <XAxis
             dataKey="stage"
-            tick={{ fontSize: 11 }}
+            tick={{ fontSize: 10 }}
             axisLine={false}
             tickLine={false}
           />
@@ -58,7 +60,7 @@ const PipelineChart = () => {
           <Tooltip
             cursor={{ fill: "rgba(99,102,241,0.08)" }}
             contentStyle={{
-              borderRadius: "12px",
+              borderRadius: "10px",
               border: "none",
               boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
             }}
@@ -67,8 +69,8 @@ const PipelineChart = () => {
           <Bar
             dataKey="count"
             fill="#eab308"
-            radius={[8, 8, 0, 0]}
-            barSize={80}
+            radius={[0, 0, 0, 0]}
+            barSize={50}
           />
         </BarChart>
       </ResponsiveContainer>

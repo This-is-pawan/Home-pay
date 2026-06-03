@@ -6,13 +6,12 @@ import {links} from "../components/data.js";
 import { GlobalContext } from "../ContextApi";
 
 const Links = () => {
-  const { bar,setBar,activeIndex,setActiveIndex, } = GlobalContext();
-  const [darkMode, setDarkMode,] = useState(false);
+  const { bar,setBar,activeIndex,setActiveIndex,darkMode, setDarkMode } = GlobalContext();
 
   return (
    
     <aside
-      className={`absolute top-[4.5rem] left-0 z-50  h-[calc(100vh-4.4rem)] w-full max-w-[250px] bg-black flex flex-col transition-transform duration-300 min-[900px]:hidden ${
+      className={`fixed top-[4.3rem] left-0 z-50  h-[calc(100vh-4rem)] w-full max-w-[250px] bg-black flex flex-col transition-transform duration-300 min-[900px]:hidden ${
         bar ? "translate-x-0 " : "-translate-x-full "
       }  `}
     >

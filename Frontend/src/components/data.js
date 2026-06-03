@@ -39,9 +39,9 @@ import { CiCircleCheck } from "react-icons/ci";
  {id:9,link:'/owners',title:'owners',icons:LuBuilding2},
  {id:10,link:'/inventory',title:'inventory',icons:FaBed},
  {id:11,link:'/availability',title:'availability',icons:IoMdBook},
- {id:12,link:'/effort',title:'effort',icons:SlGraph},
- {id:13,link:'/matching',title:'matching',icons:PiStarFourBold},
- {id:14,link:'/settings',title:'settings',icons:CiSettings},
+//  {id:12,link:'/effort',title:'effort',icons:SlGraph},
+//  {id:13,link:'/matching',title:'matching',icons:PiStarFourBold},
+ {id:12,link:'/settings',title:'settings',icons:CiSettings},
 
 ]
 
@@ -1033,3 +1033,151 @@ export const inventory = [
     confirmed: "4 days ago",
   },
 ];
+ export const avaiability = [
+  {
+    id: 1,
+    area: "Electronic City",
+    vacant: 33,
+    properties: [
+      {
+        name: "CloudNine PG",
+        vacantBeds: "23 / 27",
+        rentPerBed: 5000,
+        nextVacancy: "—",
+      },
+      {
+        name: "Gharpayy Nest - Electronic City",
+        vacantBeds: "10 / 10",
+        rentPerBed: 5500,
+        nextVacancy: "—",
+      },
+    ],
+  },
+  {
+    id: 2,
+    area: "Whitefield",
+    vacant: 28,
+    properties: [
+      {
+        name: "TechNest Co-Living",
+        vacantBeds: "18 / 21",
+        rentPerBed: 8000,
+        nextVacancy: "—",
+      },
+      {
+        name: "Gharpayy Villa - Whitefield",
+        vacantBeds: "10 / 10",
+        rentPerBed: 7000,
+        nextVacancy: "—",
+      },
+    ],
+  },
+  {
+    id: 3,
+    area: "Marathahalli",
+    vacant: 25,
+    properties: [
+      {
+        name: "Sunrise PG for Men",
+        vacantBeds: "15 / 18",
+        rentPerBed: 8000,
+        nextVacancy: "—",
+      },
+      {
+        name: "Gharpayy Heights - Marathahalli",
+        vacantBeds: "10 / 10",
+        rentPerBed: 6500,
+        nextVacancy: "—",
+      },
+    ],
+  },
+  {
+    id: 4,
+    area: "BTM Layout",
+    vacant: 22,
+    properties: [
+      {
+        name: "Comfort Zone PG",
+        vacantBeds: "12 / 12",
+        rentPerBed: 5500,
+        nextVacancy: "—",
+      },
+      {
+        name: "Gharpayy Homes - BTM",
+        vacantBeds: "10 / 10",
+        rentPerBed: 7000,
+        nextVacancy: "—",
+      },
+    ],
+  },
+  {
+    id: 5,
+    area: "Indiranagar",
+    vacant: 17,
+    properties: [
+      {
+        name: "Urban Nest Coliving",
+        vacantBeds: "11 / 15",
+        rentPerBed: 15000,
+        nextVacancy: "—",
+      },
+      {
+        name: "Gharpayy Residency - Indiranagar",
+        vacantBeds: "6 / 6",
+        rentPerBed: 15000,
+        nextVacancy: "—",
+      },
+    ],
+  },
+  {
+    id: 6,
+    area: "Sarjapur Road",
+    vacant: 17,
+    properties: [
+      {
+        name: "Zenith Co-Living Hub",
+        vacantBeds: "17 / 18",
+        rentPerBed: 8000,
+        nextVacancy: "—",
+      },
+    ],
+  },
+  {
+    id: 7,
+    area: "Koramangala",
+    vacant: 14,
+    properties: [
+      {
+        name: "Green Valley PG",
+        vacantBeds: "14 / 15",
+        rentPerBed: 9500,
+        nextVacancy: "—",
+      },
+    ],
+  },
+  {
+    id: 8,
+    area: "Bellandur",
+    vacant: 4,
+    properties: [
+      {
+        name: "Lakeview Women's PG",
+        vacantBeds: "4 / 18",
+        rentPerBed: 9000,
+        nextVacancy: "—",
+      },
+    ],
+  },
+];
+export const team_member=[
+  {id:1,name:'anita desai',email:'anita@hompay.com',account:'deactive'},
+  {id:2,name:'sham',email:'sham@hompay.com',account:'deactive'},
+{id:3,name:'venaa roy',email:'venaa@hompay.com',account:'deactive'},
+  {id:4,name:'john smith',email:'john@hompay.com',account:'dective'},
+]
+export const properties=[
+  {id:1,name:'anita desai',el_ci_pr:'electronic city,bangalore-₹1500-₹900'},
+  {id:2,name:'sham',el_ci_pr:'BTM layout,bangalore-₹5500-₹1000'},
+{id:3,name:'venaa roy',el_ci_pr:'marathalhali,banglore ,bangalore-₹6500-₹12000'},
+  {id:4,name:'john smith',el_ci_pr:'electronic city,bangalore-₹1500-₹900'},
+]
