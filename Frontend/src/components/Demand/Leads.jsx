@@ -32,7 +32,7 @@ const Leads = () => {
           <span className="font-medium">Filters</span>
         </div>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 max-[500px]:grid  grid-cols-2 text-sm">
           <select className="px-3 py-2 rounded-lg text-xs border">
             <option>All Source</option>
             <option>WhatsApp</option>
