@@ -4,10 +4,11 @@ import { FiMoon } from "react-icons/fi";
 import { IoIosSunny } from "react-icons/io";
 import {links} from "../components/data.js";
 import { GlobalContext } from "../ContextApi";
+import Admin from "./Admin.jsx";
 
 const Links = () => {
   const { bar,setBar,activeIndex,setActiveIndex,darkMode, setDarkMode } = GlobalContext();
-
+const [admin,setAdmin]=useState(false)
   return (
    
     <aside
@@ -80,7 +81,7 @@ const Links = () => {
       </div>
 
       {/* Footer */}
-      <div className=" border-gray-700 p-4 ">
+      <div className=" border-gray-700 p-4 cursor-pointer " onClick={()=>setAdmin(!admin)}>
         <div className="flex items-center gap-3  rounded-md p-2 bg-gray-800 ">
           <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(63,33,8,0.58)] font-bold text-white shadow-md">
             A
@@ -94,6 +95,7 @@ const Links = () => {
           </div>
         </div>
       </div>
+    {admin&&<Admin/>}
     </aside>
    
   );

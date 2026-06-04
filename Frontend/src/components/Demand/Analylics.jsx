@@ -10,6 +10,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { FaTrophy } from "react-icons/fa";
+import { GlobalContext } from "../../ContextApi";
 
 const funnelData = [
   { stage: "New Lead", count: 3 },
@@ -67,12 +68,14 @@ const leaderboard = [
 ];
 
 const Analytics = () => {
+  const {darkMode}=GlobalContext()
+
   return (
-    <div className="p-4 bg-pink-50 min-h-screen text-xs">
+    <div className={`p-4 min-h-screen text-xs ${darkMode? 'bg-pink-50':'bg-[hsl(0,0%,10%)] text-slate-400'} `}>
       {/* Top */}
       <div className="grid lg:grid-cols-2 gap-4 mb-4">
         {/* Funnel */}
-        <div className="bg-white rounded-xl shadow-sm p-4">
+        <div className={` rounded-xl shadow-sm p-4 ${darkMode? 'bg-white':'bg-[hsl(0,0%,10%)] border border-pink-700'} `}>
           <h3 className="font-semibold mb-4 text-sm">
             Conversion Funnel
           </h3>
@@ -87,7 +90,7 @@ const Analytics = () => {
                   {item.stage}
                 </span>
 
-                <div className="flex-1 bg-gray-100 rounded-lg h-7 overflow-hidden relative">
+                <div className={`${darkMode?'bg-gray-100':'border bg-[hsl(0,0%,10%)] border-slate-400 text-pink-700 '} flex-1 rounded-lg h-7 overflow-hidden relative`}>
                   <div
                     className="h-full bg-yellow-500"
                     style={{
@@ -104,7 +107,7 @@ const Analytics = () => {
         </div>
 
         {/* ROI */}
-        <div className="bg-white rounded-xl shadow-sm p-4">
+        <div className={`${darkMode?'bg-white':'bg-[hsl(0,0%,10%)]  border border-pink-700 text-slate-400'}  rounded-xl shadow-sm p-4`}>
           <h3 className="font-semibold mb-4 text-sm">
             Lead Source ROI
           </h3>
@@ -124,7 +127,7 @@ const Analytics = () => {
       {/* Bottom */}
       <div className="grid lg:grid-cols-2 gap-4">
         {/* Leaderboard */}
-        <div className="bg-white rounded-xl shadow-sm p-4">
+        <div className={` rounded-xl shadow-sm p-4  ${darkMode?'bg-white':'bg-[hsl(0,0%,10%)] border border-pink-700 text-salte-400'}`}>
           <h3 className="flex items-center gap-2 text-sm font-semibold mb-4">
             <FaTrophy className="text-yellow-500" />
             Agent Leaderboard
@@ -134,9 +137,9 @@ const Analytics = () => {
             {leaderboard.map((agent) => (
               <div
                 key={agent.rank}
-                className="flex items-center gap-3 p-3 rounded-lg bg-pink-50"
+                className={`flex items-center gap-3 p-3 rounded-lg ${darkMode? 'bg-pink-50':'bg-[hsl(0,0%,10%)] border border-pink-700 text-slate-400'}`}
               >
-                <span className="w-6 h-6 rounded-full bg-yellow-500 opacity-[0.7]  flex items-center justify-center text-[10px]">
+                <span className={`w-6 h-6 rounded-full  opacity-[0.7]  flex items-center justify-center text-[10px] ${darkMode? 'bg-yellow-500 ':'text-pink-700 border bg-yellow-400 '}`}>
                   {agent.rank}
                 </span>
 
@@ -156,7 +159,7 @@ const Analytics = () => {
         </div>
 
         {/* Weekly Trend */}
-        <div className="bg-white rounded-xl shadow-sm p-4">
+        <div className={ `${darkMode?'bg-white ':'bg-[hsl(0,0%,10%)] border border-pink-700 text-slate-400 '} rounded-xl shadow-sm p-4`}>
           <h3 className="font-semibold text-sm mb-4">
             Weekly Trends
           </h3>

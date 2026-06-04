@@ -5,11 +5,13 @@ import { IoIosSunny } from "react-icons/io";
 
 import { links } from "./data";
 import { GlobalContext } from "../ContextApi";
+import Admin from "./Admin";
 
 
 const Dashboard = () => {
 const {darkMode, setDarkMode}=GlobalContext()
  const [loading, setLoading] = useState(true);
+ const [admin,setAdmin]=useState(false)
   return (
     <div
       className={`  flex bg-[rgba(0, 0, 0,0.9] min-[900px]:mt-[6rem] min-[900px]:h-[calc(100vh-6rem)]  `}
@@ -67,7 +69,7 @@ const {darkMode, setDarkMode}=GlobalContext()
         </div>
 
         {/* Fixed Bottom Admin */}
-         <div className=" border-gray-700 p-4 ">
+         <div className=" border-gray-700 p-4 cursor-pointer" onClick={()=>setAdmin(!admin)}>
         <div className="flex items-center gap-3  rounded-md p-2 bg-gray-800 ">
           <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(63,33,8,0.58)] font-bold text-white shadow-md">
             A
@@ -81,6 +83,8 @@ const {darkMode, setDarkMode}=GlobalContext()
           </div>
         </div>
       </div>
+{admin&&<Admin/>}
+
       </aside>
 
       {/* Dashboard Content */}

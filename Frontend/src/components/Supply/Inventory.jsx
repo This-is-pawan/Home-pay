@@ -3,8 +3,10 @@ import { inventory } from "../data";
 import { FaSearch } from "react-icons/fa";
 import { CiFilter } from "react-icons/ci";
 import { IoIosArrowDown } from "react-icons/io";
+import { GlobalContext } from "../../ContextApi";
 
 const Inventory = () => {
+  const {darkMode} =GlobalContext();
   const [search, setSearch] = useState("");
   const [showStatus, setShowStatus] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState("All");
@@ -47,7 +49,7 @@ const Inventory = () => {
         {stats.map((item) => (
           <div
             key={item.id}
-            className="bg-white border rounded-xl p-4 shadow-sm"
+            className={` border rounded-xl p-4 shadow-sm ${darkMode?'bg-white':'bg-[hsl(0,0%,10%)] text-slate-400 border border-pink-700'}`}
           >
             <h2 className="text-2xl font-bold">{item.counting}</h2>
             <p className="text-sm text-gray-500">{item.title}</p>
@@ -57,14 +59,14 @@ const Inventory = () => {
 
       {/* Filters */}
       <div className="flex flex-wrap gap-3 items-center mb-6">
-        <button className="bg-black text-white px-4 py-2 rounded-lg">
+        <button className={`${darkMode? 'bg-black text-white ':'hover:border border-yellow-500 bg-black text-white '}  px-4 py-2 rounded-lg`}>
           + Add Room
         </button>
 
         <div className="relative">
           <button
             onClick={() => setShowStatus(!showStatus)}
-            className="border rounded-lg px-4 py-2 flex items-center gap-2"
+            className={` rounded-lg px-4 py-2 flex items-center gap-2  ${darkMode?'border ':'border border-pink-700 text-slate-400'}`}
           >
             <CiFilter />
             {selectedStatus}
@@ -72,7 +74,7 @@ const Inventory = () => {
           </button>
 
           {showStatus && (
-            <div className="absolute top-full mt-2 bg-white border rounded-lg shadow w-40 z-20">
+            <div className={`absolute top-full mt-2   rounded-lg shadow w-40 z-20 ${darkMode?'bg-white':'bg-[hsl(0,0%,10%)] text-slate-400 border border-pink-700'}`} >
               {["All", "Vacant", "Occupied", "Blocked"].map((item) => (
                 <div
                   key={item}
@@ -80,7 +82,7 @@ const Inventory = () => {
                     setSelectedStatus(item);
                     setShowStatus(false);
                   }}
-                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                  className={`px-4 py-2  cursor-pointer ${darkMode?'hover:bg-gray-100':'hover:bg-gray-700'}`}
                 >
                   {item}
                 </div>
@@ -89,15 +91,19 @@ const Inventory = () => {
           )}
         </div>
 
-        <div className="flex items-center border rounded-lg px-3 flex-1 max-w-sm bg-white">
-          <FaSearch className="text-gray-400" />
-          <input
-            type="text"
-            placeholder="Search room, owner, property..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full p-2 outline-none"
-          />
+        <div className={`flex items-center border rounded-lg px-3 flex-1 max-w-sm ${darkMode ? 'bg-white' :'bg-black border border-pink-700'}`}>
+          <FaSearch className={`${darkMode?'text-gray-400':'text-slate-400'}`} />
+       <input
+  type="text"
+  placeholder="Search room, owner, property..."
+  value={search}
+  onChange={(e) => setSearch(e.target.value)}
+  className={`w-full p-2 outline-none ${
+    darkMode
+      ? "bg-pink-50 text-slate-400"
+      : "bg-black text-slate-400"
+  }`}
+/>
         </div>
       </div>
 
@@ -106,7 +112,7 @@ const Inventory = () => {
         {filteredData.map((item) => (
           <div
             key={item.id}
-            className="bg-white border rounded-xl p-5 shadow-sm hover:shadow-md transition"
+            className={`  border rounded-xl p-5 shadow-sm hover:shadow-md transition ${darkMode? 'bg-white':'bg-[hsl(0,0%,10%)] border border-pink-700 text-slate-400'}`}
           >
             <div className="flex justify-between items-center mb-4">
               <h2 className="font-semibold text-lg">{item.room}</h2>
@@ -118,7 +124,7 @@ const Inventory = () => {
                     : item.status === "Vacant"
                     ? "bg-yellow-100 text-yellow-700"
                     : "bg-red-100 text-red-700"
-                }`}
+                } ${darkMode?'':'bg-yellow-500 text-slate-800 '}`}
               >
                 {item.status}
               </span>

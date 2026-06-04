@@ -1,12 +1,14 @@
 import React from "react";
 import { avaiability } from "../data";
+import { GlobalContext } from "../../ContextApi";
 
 const Availability = () => {
+  const {darkMode}=GlobalContext();
   return (
     <div className="min-h-screen p-4 sm:p-6">
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-800">
+        <h1 className={`text-2xl font-bold  ${darkMode?'text-gray-800':'text-slate-400'}`}>
           Property Availability
         </h1>
         <p className="text-sm text-gray-500">
@@ -19,21 +21,21 @@ const Availability = () => {
         {avaiability.map((location) => (
           <div
             key={location.id}
-            className="bg-white rounded-xl shadow-md p-5 border border-gray-100"
+            className={` rounded-xl shadow-md p-5 border  ${darkMode? 'bg-white border-gray-100':'border border-pink-700  text-slate-400' }`}
           >
             {/* Location Header */}
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-semibold text-gray-800">
+              <h2 className={`text-lg font-semibold  ${darkMode?'text-gray-800':'text-slate-400'}`}>
                 {location.area}
               </h2>
 
-              <span className="bg-green-100 text-green-700 text-sm font-medium px-3 py-1 rounded-full">
+              <span className={`font-medium px-3 py-1 rounded-full ${darkMode?'bg-green-100 text-green-700 text-sm ':'bg-yellow-500 text-slate-800 text-sm'}`}>
                 {location.vacant} Vacant
               </span>
             </div>
 
             {/* Table Header */}
-            <div className="hidden sm:grid grid-cols-4 gap-3 text-xs font-semibold text-gray-500 uppercase border-b pb-2 mb-3">
+            <div className={`hidden sm:grid grid-cols-4 gap-3 text-xs font-semibold  uppercase pb-2 mb-3 ${darkMode?'text-gray-500 border-b ':'text-slate-7000 border-pink-700 border-b'}`}>
               <p>Property</p>
               <p>Vacant Beds</p>
               <p>Rent/Bed</p>
@@ -45,11 +47,11 @@ const Availability = () => {
               {location.properties.map((property, index) => (
                 <div
                   key={index}
-                  className="bg-gray-50 rounded-lg p-3 shadow-sm  transition text-xs"
+                  className={` rounded-lg p-3 shadow-sm  transition text-xs ${darkMode?'bg-gray-50':'bg-[hsl(0,0%,10%)] border border-pink-700 text-slate-400'}`}
                 >
                   {/* Desktop */}
                   <div className="hidden sm:grid grid-cols-4 gap-3 items-center">
-                    <h3 className="font-medium text-gray-800">
+                    <h3 className={`font-medium  ${darkMode?'text-gray-800':'text-slate-400'}`}>
                       {property.name}
                     </h3>
 
