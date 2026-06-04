@@ -13,7 +13,8 @@ const Settings = () => {
   return (
     <div className="p-4 text-sm">
       {/* Tabs */}
-      <article className={`w-full max-w-3xl  opacity-[0.8] p-2 rounded-lg flex flex-wrap gap-2 justify-around ${darkMode? 'bg-pink-100':'bg-[hsl(0,0%,10%)] text-slate-400 border border-pink-700'}`}>
+      <article className={`w-full max-w-3xl  opacity-[0.8] p-2 rounded-lg flex  gap-2 justify-around
+         ${darkMode? 'bg-pink-100':'bg-[hsl(0,0%,10%)] text-slate-400 border border-pink-700'}`}>
         <button
           onClick={() => setActiveTab("team")}
           className={`w-24 p-2 rounded-lg flex items-center gap-1 capitalize ${

@@ -12,7 +12,7 @@ const [admin,setAdmin]=useState(false)
   return (
    
     <aside
-      className={`fixed top-[4.3rem] left-0 z-50  h-[calc(100vh-4rem)] w-full max-w-[250px] bg-black flex flex-col transition-transform duration-300 min-[900px]:hidden ${
+      className={`fixed top-[4.3rem] left-0 z-50  h-[calc(100vh-4.3em)] w-full max-w-[250px] bg-black flex flex-col transition-transform duration-300 min-[900px]:hidden ${
         bar ? "translate-x-0 " : "-translate-x-full "
       }  `}
     >
@@ -81,7 +81,7 @@ const [admin,setAdmin]=useState(false)
       </div>
 
       {/* Footer */}
-      <div className=" border-gray-700 p-4 cursor-pointer " onClick={()=>setAdmin(!admin)}>
+      <div className="mb-10 border-gray-700 p-4 cursor-pointer " onClick={()=>setAdmin(!admin)}>
         <div className="flex items-center gap-3  rounded-md p-2 bg-gray-800 ">
           <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(63,33,8,0.58)] font-bold text-white shadow-md">
             A

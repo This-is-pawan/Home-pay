@@ -41,12 +41,12 @@ const Navbar = () => {
         </button>
        {notification &&
 
-        <div className={` w-full max-w-60 absolute top-[4.5rem] border right-10  h-80 rounded-lg overflow-y-scroll ${darkMode?'bg-pink-50 hover:bg-pink-100 ':'bg-[hsla(0,17%,5%,1)] text-pink-200 border border-pink-700 hover:border-yellow-500'}`}>
+        <div className={` w-full max-w-60 absolute top-[4.5rem] border right-4  h-80 rounded-lg overflow-y-scroll ${darkMode?'bg-pink-50 hover:bg-pink-100 ':'bg-[hsla(0,17%,5%,1)] text-pink-200 border border-pink-700 hover:border-yellow-500'}`}>
 <Notification/>
         </div>}
         {/* Search */}
         <div className={` transition-all flex items-center ${darkMode ?'bg-pink-100':'bg-[hsla(0,17%,5%,1)]'}  rounded-lg px-2 py-1 max-[500px]:p-2.5`}>
-          <IoSearch className="text-sm text-gray-600 font-bold " />
+          <IoSearch className="text-sm text-pink-700 font-bold "  />
 
           <input
             type="text"

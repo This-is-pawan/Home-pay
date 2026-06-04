@@ -67,8 +67,8 @@ const Leads = () => {
       {/* Bulk Actions */}
       {selectedIds.length > 0 && (
         <div className={`${darkMode ?
-        'bg-pink-50':'bg-[hsla(0,17%,5%,1)] text-slate-400 border border-pink-700'} p-4 rounded-lg flex flex-wrap gap-3 mb-5`}>
-          <p className="text-sm font-medium">
+        'bg-pink-50':'bg-[hsla(0,17%,5%,1)] text-slate-400 border border-pink-700'} p-4 rounded-lg m-5 flex flex-wrap gap-4 items-center `}>
+          <p className="text-xs font-medium">
             {selectedIds.length} Selected
           </p>
 
@@ -92,9 +92,9 @@ const Leads = () => {
 
           <button
             onClick={() => setSelectedIds([])}
-            className={`${darkMode?'bg-pink-500 text-white':'bg-[hsla(0,17%,5%,1)] text-slate-400 border-pink-700 border'}  px-4 py-2 rounded-lg`}
+            className={`${darkMode?'bg-pink-500 text-white':'bg-[hsla(0,17%,5%,1)] text-slate-400 border-yellow-500 border '}  px-4 py-1.5 rounded-lg`}
           >
-            Clear
+            clear 
           </button>
         </div>
       )}
@@ -170,7 +170,7 @@ const Leads = () => {
           return (
             <div
               key={lead.id}
-              className={`bg-white border rounded-xl p-4 shadow-sm`}
+              className={` border rounded-xl p-4 shadow-sm ${darkMode?'bg-white':'bg-[hsl(0,0%,10%)] text-slate-400 border border-pink-700'}`}
             >
               <div className="flex justify-between items-start mb-3">
                 <div>
@@ -185,7 +185,7 @@ const Leads = () => {
                   className={`w-5 h-5 border border-black rounded-full cursor-pointer flex items-center justify-center`}
                 >
                   {selectedIds.includes(lead.id) && (
-                    <div className={`w-2 h-2 bg-black rounded-full`}></div>
+                    <div className={`w-2 h-2 bg-black rounded-full `}></div>
                   )}
                 </div>
               </div>

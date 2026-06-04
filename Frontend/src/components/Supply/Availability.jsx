@@ -70,25 +70,25 @@ const Availability = () => {
 
                   {/* Mobile */}
                   <div className="sm:hidden">
-                    <h3 className="font-medium text-gray-800 mb-2">
+                    <h3 className={`font-medium ${darkMode?'text-gray-800':'text-slate-400'} mb-2`}>
                       {property.name}
                     </h3>
 
                     <div className="grid grid-cols-2 gap-2 text-sm">
-                      <div className="bg-white p-2 rounded shadow-sm">
-                        <p className="text-gray-500 text-xs">Vacant Beds</p>
+                      <div className={`${darkMode?'bg-white':'bg-[hsl(0,0%,10%)] text-slate-400 border border-pink-700'}  p-2 rounded shadow-sm`}>
+                        <p className={`${darkMode?'text-gray-500':'text-slate-400'}  text-xs`}>Vacant Beds</p>
                         <p className="font-medium">{property.vacantBeds}</p>
                       </div>
 
-                      <div className="bg-white p-2 rounded shadow-sm">
-                        <p className="text-gray-500 text-xs">Rent/Bed</p>
-                        <p className="font-medium text-green-600">
+                      <div className={` p-2 rounded shadow-sm ${darkMode?'bg-white':'text-slate-400 border border-pink-700'}`}>
+                        <p className={`text-gray-500 text-xs`}>Rent/Bed</p>
+                        <p className={`font-medium text-green-600`}>
                           ₹{property.rentPerBed.toLocaleString()}
                         </p>
                       </div>
 
-                      <div className="bg-white p-2 rounded shadow-sm col-span-2">
-                        <p className="text-gray-500 text-xs">Next Vacancy</p>
+                      <div className={` p-2 rounded shadow-sm col-span-2 ${darkMode?'bg-white':'text-slate-400 border border-pink-700'}`}>
+                        <p className={`text-gray-00 text-xs`}>Next Vacancy</p>
                         <p className="font-medium">
                           {property.nextVacancy}
                         </p>
